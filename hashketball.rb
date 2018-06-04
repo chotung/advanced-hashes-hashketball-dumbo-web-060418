@@ -1,4 +1,12 @@
-
+def player_by_num(num)
+  game_hash.each do |team, team_details|
+    team_details[:players].each do |player|
+      if player[:number] == num
+        return player[:name]
+      end
+    end
+  end
+end
 def game_hash
   {
   :home => {
@@ -215,3 +223,20 @@ def big_shoe_rebounds
   end
   rebounds
 end
+
+#bonus
+
+def most_points_scored
+ highestScore = 0
+  game_hash.each do |team, team_details|
+    team_details[:players].each do |stats|
+      if stats[:points] > highestScore
+        highestScore = stats[:points]
+      end
+    end
+  end
+  highestScore
+end
+
+
+  
